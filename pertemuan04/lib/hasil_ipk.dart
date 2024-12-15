@@ -7,12 +7,18 @@ class HasilIpkPage extends StatelessWidget {
   final List<int> sksMatakuliah;
   final List<String?> selectedNilai;
 
+  // Menambahkan parameter Nama dan NPM
+  final String nama;
+  final String npm;
+
   HasilIpkPage({
     required this.ipk,
     required this.totalSks,
     required this.selectedMatakuliah,
     required this.sksMatakuliah,
     required this.selectedNilai,
+    required this.nama,
+    required this.npm,
   });
 
   @override
@@ -24,13 +30,15 @@ class HasilIpkPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Menampilkan setiap mata kuliah dan nilai
+            // Menampilkan Nama dan NPM
+            Text('Nama: $nama', style: TextStyle(fontSize: 18)),
+            Text('NPM: $npm', style: TextStyle(fontSize: 18)),
+            SizedBox(height: 16),
             Expanded(
               child: ListView.builder(
                 itemCount: selectedMatakuliah.length,
                 itemBuilder: (context, index) {
                   String nilai = selectedNilai[index] ?? 'Belum Dipilih';
-
                   return ListTile(
                     title: Text('${selectedMatakuliah[index]}'),
                     subtitle:
@@ -39,7 +47,6 @@ class HasilIpkPage extends StatelessWidget {
                 },
               ),
             ),
-            // Menampilkan Total SKS dan IPK di bawah
             SizedBox(height: 16),
             Text('Total SKS: ${totalSks.toInt()}',
                 style: TextStyle(fontSize: 18)),

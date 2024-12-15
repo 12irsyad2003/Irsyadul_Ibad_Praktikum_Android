@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'pegawai.dart';
+import 'nilai_input.dart';
 
 void main() {
   runApp(const MyApp());
@@ -8,12 +8,11 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Transfer Variabel',
-      home: Pegawai(),
+      title: 'Input Nilai IPK',
+      home: NilaiMatakuliahPage(),
     );
   }
 }
